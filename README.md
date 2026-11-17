@@ -1,6 +1,6 @@
 # Predição de Doença Cardíaca
 
-> 🚧 Em desenvolvimento: fase 2 de 7
+> 🚧 Em desenvolvimento: fase 3 de 7
 
 Modelo de classificação para prever a presença de doença cardíaca a partir de dados clínicos. Usa o [Heart Disease UCI](https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data): 920 pacientes de 4 hospitais (Cleveland, Hungria, Suíça e VA Long Beach), originalmente publicado no [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/45/heart+disease).
 
@@ -20,8 +20,8 @@ Detalhes em [`01_eda.ipynb`](01_eda.ipynb).
 ## Roteiro
 
 - [x] **Fase 1:** análise exploratória ([`01_eda.ipynb`](01_eda.ipynb))
-- [ ] **Fase 2:** preparação dos dados ([`02_preparacao.ipynb`](02_preparacao.ipynb)), em andamento
-- [ ] **Fase 3:** baseline e regressão logística
+- [x] **Fase 2:** preparação dos dados ([`02_preparacao.ipynb`](02_preparacao.ipynb))
+- [ ] **Fase 3:** baseline e regressão logística ([`03_baseline.ipynb`](03_baseline.ipynb)), em andamento
 - [ ] **Fase 4:** pipeline (`ColumnTransformer`) sem vazamento de dados
 - [ ] **Fase 5:** validação cruzada, métricas clínicas e escolha do limiar
 - [ ] **Fase 6:** interpretação e teste em um hospital que o modelo nunca viu
