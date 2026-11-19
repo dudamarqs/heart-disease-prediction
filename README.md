@@ -42,7 +42,7 @@ Detalhes em [`03_baseline.ipynb`](03_baseline.ipynb).
 - [x] **Fase 1:** análise exploratória ([`01_eda.ipynb`](01_eda.ipynb))
 - [x] **Fase 2:** preparação dos dados ([`02_preparacao.ipynb`](02_preparacao.ipynb))
 - [x] **Fase 3:** baseline e diagnóstico da regressão logística ([`03_baseline.ipynb`](03_baseline.ipynb))
-- [ ] **Fase 4:** pipeline (`ColumnTransformer`) sem vazamento de dados
+- [x] **Fase 4:** pipeline (`ColumnTransformer`) sem vazamento de dados
 - [ ] **Fase 5:** validação cruzada, métricas clínicas e escolha do limiar
 - [ ] **Fase 6:** interpretação e teste em um hospital que o modelo nunca viu
 - [ ] **Fase 7:** modelo servido por API
