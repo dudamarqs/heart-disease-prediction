@@ -1,6 +1,6 @@
 # Predição de Doença Cardíaca
 
-> 🚧 Em desenvolvimento: fases 1 a 4 concluídas, fase 5 a seguir.
+> 🚧 Em desenvolvimento: fases 1 a 4 concluídas, fase 5 em andamento.
 
 Modelo de classificação para prever a presença de doença cardíaca a partir de dados clínicos. Utiliza o [Heart Disease UCI](https://www.kaggle.com/datasets/redwankarimsony/heart-disease-data): 920 pacientes de 4 hospitais (Cleveland, Hungria, Suíça e VA Long Beach), originalmente publicado no [UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/45/heart+disease).
 
@@ -36,10 +36,12 @@ Detalhes em [`02_preparacao.ipynb`](02_preparacao.ipynb).
 | Diagnóstico da regressão logística | O treinamento direto falhou devido à presença de valores ausentes e variáveis categóricas não codificadas |
 | Pipeline de pré-processamento | `ColumnTransformer` com imputação, padronização e One-Hot Encoding |
 | Regressão logística | **~81% de acurácia** no conjunto de teste |
+| Validação cruzada (5 rodadas, só no treino) | **80,7% ± 1,1%** de acurácia. Os ~81% do teste estão dentro da faixa, então aquela divisão foi representativa |
+| Matriz de confusão (teste) | 16 falsos negativos e 19 falsos positivos. **Recall de 84%** (86 de 102 doentes identificados) e especificidade de 77% |
 
-O primeiro modelo superou o baseline em aproximadamente 25,6 pontos percentuais. Como a avaliação utiliza uma única divisão treino/teste, o resultado ainda pode variar conforme a composição dos dados. A fase 5 investigará a estabilidade do desempenho por meio de validação cruzada e métricas adicionais.
+O primeiro modelo superou o baseline em aproximadamente 25,6 pontos percentuais, com desempenho estável entre as rodadas da validação cruzada. Neste problema, o erro mais grave é o falso negativo (um paciente doente classificado como saudável), por isso o recall da classe "doente" é a métrica prioritária. As rodadas da validação cruzada misturam os 4 hospitais: a generalização para um hospital que o modelo nunca viu será testada na fase 6.
 
-Detalhes em [`03_baseline.ipynb`](03_baseline.ipynb) e [`04_pipeline.ipynb`](04_pipeline.ipynb).
+Detalhes em [`03_baseline.ipynb`](03_baseline.ipynb), [`04_pipeline.ipynb`](04_pipeline.ipynb) e [`05_validacao.ipynb`](05_validacao.ipynb).
 
 ## Roteiro
 
@@ -47,7 +49,7 @@ Detalhes em [`03_baseline.ipynb`](03_baseline.ipynb) e [`04_pipeline.ipynb`](04_
 - [x] **Fase 2:** preparação dos dados (`02_preparacao.ipynb`)
 - [x] **Fase 3:** baseline e diagnóstico da regressão logística (`03_baseline.ipynb`)
 - [x] **Fase 4:** pipeline de pré-processamento com `ColumnTransformer` e regressão logística, evitando vazamento de dados (`04_pipeline.ipynb`)
-- [ ] **Fase 5:** validação cruzada, métricas clínicas e escolha do limiar de classificação
+- [ ] **Fase 5:** validação cruzada, métricas clínicas e escolha do limiar de classificação (`05_validacao.ipynb`), em andamento
 - [ ] **Fase 6:** interpretação do modelo e avaliação em um hospital que ele nunca viu
 - [ ] **Fase 7:** disponibilização do modelo por API
 
@@ -61,6 +63,7 @@ Detalhes em [`03_baseline.ipynb`](03_baseline.ipynb) e [`04_pipeline.ipynb`](04_
 | `02_preparacao.ipynb` | Preparação e limpeza dos dados |
 | `03_baseline.ipynb` | Divisão treino/teste, baseline e diagnóstico inicial |
 | `04_pipeline.ipynb` | Pré-processamento e treinamento da regressão logística |
+| `05_validacao.ipynb` | Validação cruzada e métricas clínicas (matriz de confusão, recall) |
 | `requirements.txt` | Dependências e versões das bibliotecas |
 
 ## Como rodar
@@ -75,4 +78,4 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-Depois, abra os notebooks no VS Code ou no Jupyter, selecione o kernel `.venv` e execute em ordem, da fase 1 à fase 4.
+Depois, abra os notebooks no VS Code ou no Jupyter, selecione o kernel `.venv` e execute os notebooks em ordem, a partir do `01`.
