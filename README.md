@@ -35,9 +35,9 @@ Detalhes em [`02_preparacao.ipynb`](02_preparacao.ipynb).
 | Baseline (`DummyClassifier`) | **55,4% de acurácia**: referência inicial baseada na classe majoritária |
 | Diagnóstico da regressão logística | O treinamento direto falhou devido à presença de valores ausentes e variáveis categóricas não codificadas |
 | Pipeline de pré-processamento | `ColumnTransformer` com imputação, padronização e One-Hot Encoding |
-| Regressão logística | **80,98% de acurácia** no conjunto de teste |
+| Regressão logística | **~81% de acurácia** no conjunto de teste |
 
-O primeiro modelo superou o baseline em aproximadamente 25,6 pontos percentuais. Apesar do resultado inicial positivo, ainda é necessário avaliar outras métricas e verificar a capacidade de generalização do modelo.
+O primeiro modelo superou o baseline em aproximadamente 25,6 pontos percentuais. Como a avaliação utiliza uma única divisão treino/teste, o resultado ainda pode variar conforme a composição dos dados. A fase 5 investigará a estabilidade do desempenho por meio de validação cruzada e métricas adicionais.
 
 Detalhes em [`03_baseline.ipynb`](03_baseline.ipynb) e [`04_pipeline.ipynb`](04_pipeline.ipynb).
 
